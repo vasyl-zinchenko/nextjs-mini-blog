@@ -146,7 +146,21 @@ function Navbar() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            {userRole === "authenticated" && <LogoutButton />}
+            {userRole === "authenticated" ? (
+              <LogoutButton />
+            ) : (
+              <Link
+                href='/login'
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                  border: "1px solid white",
+                  padding: "10px",
+                }}
+              >
+                Login
+              </Link>
+            )}
           </Box>
         </Toolbar>
       </Container>
