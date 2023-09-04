@@ -52,26 +52,26 @@ const Post = ({ post }: any) => {
       </CardContent>
       <CardActions></CardActions>
       {comments?.map((comment: any) => (
-          <Card sx={{ minWidth: 275, m: 1.5, bgcolor: "white" }} key={comment.id}>
-            <CardContent>
-              <Typography
-                sx={{ fontSize: 14 }}
-                color='text.secondary'
-                gutterBottom
-              >
-                commentator: {comment.mail}
-              </Typography>
-              <Typography variant='h5' component='div'>
-                {comment.title}
-              </Typography>
+        <Card sx={{ minWidth: 275, m: 1.5, bgcolor: "white" }} key={comment.id}>
+          <CardContent>
+            <Typography
+              sx={{ fontSize: 14 }}
+              color='text.secondary'
+              gutterBottom
+            >
+              commentator: {comment.mail}
+            </Typography>
+            <Typography variant='h5' component='div'>
+              {comment.title}
+            </Typography>
 
-              <Typography variant='body2'>{comment.content}</Typography>
-            </CardContent>
-            <CardActions></CardActions>
-          </Card>
+            <Typography variant='body2'>{comment.content}</Typography>
+          </CardContent>
+          <CardActions></CardActions>
+        </Card>
       ))}
 
-      {userType !== "author" && (
+      {userType === "commentator" && (
         <>
           {isOpen && <NewComment postId={post.id} />}
           <Button
